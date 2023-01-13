@@ -21,13 +21,15 @@ local function getEngravingFromId(id)
 end
 
 local function GameTooltip_OnTooltipSetItem(tooltip)
-    local _, itemLink = tooltip:GetItem()
-    if (itemLink) then
-        local itemId = GetItemInfoFromHyperlink(itemLink)
-        local engraving = getEngravingFromId(itemId)
-        if engraving ~= '' then
-            tooltip:AddLine(" ")
-            tooltip:AddLine("\"".. engraving .."\"", 0.83, 0.68, 0.21, true)
+    if tooltip.GetItem then
+        local _, itemLink = tooltip:GetItem()
+        if (itemLink) then
+            local itemId = GetItemInfoFromHyperlink(itemLink)
+            local engraving = getEngravingFromId(itemId)
+            if engraving ~= '' then
+                tooltip:AddLine(" ")
+                tooltip:AddLine("\"".. engraving .."\"", 0.83, 0.68, 0.21, true)
+            end
         end
     end
 end
