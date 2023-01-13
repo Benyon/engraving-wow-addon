@@ -1,0 +1,10 @@
+## Interface: 100002
+## Version: 0.0.1
+## Title: Engrave
+## Notes: Engrave items with notes.
+## Author: Jordan Benyon
+## SavedVariables: EngravingsTable
+
+Engrave.lua
+Tooltips.lua
+Slash.lua
