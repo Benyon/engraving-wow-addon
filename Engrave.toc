@@ -3,10 +3,9 @@
 ## Title: Engrave
 ## Notes: Engrave items with notes.
 ## Author: Jordan Benyon
-## SavedVariables: EngravingsTable
+## SavedVariablesPerCharacter: EngravingsTable, EngraveIconsOption
 
 EngraveGeneric.lua
 Engrave.lua
 EngraveTooltips.lua
 EngraveSlash.lua
-EngraveIcons.lua

@@ -10,4 +10,9 @@ rm -rf "C:\Program Files (x86)\World of Warcraft\_retail_\Interface\Addons\Engra
 rm -rf "C:\Program Files (x86)\World of Warcraft\_retail_\Interface\Addons\Engrave\build.sh"
 rm -rf "C:\Program Files (x86)\World of Warcraft\_retail_\Interface\Addons\Engrave\.vscode"
 echo "Cleaned up git, renamed folder, vscode config and cleared up build steps."
-explorer "C:\Program Files (x86)\World of Warcraft\_retail_\Interface\Addons\Engrave"
+read -p "Do you want to open the folder? y/n " choice
+if [[ $choice == "y" ]]
+then
+    explorer "C:\Program Files (x86)\World of Warcraft\_retail_\Interface\Addons\Engrave"
+fi
+ 
