@@ -5,6 +5,8 @@
 ## Author: Jordan Benyon
 ## SavedVariables: EngravingsTable
 
+EngraveGeneric.lua
 Engrave.lua
-Tooltips.lua
-Slash.lua
+EngraveTooltips.lua
+EngraveSlash.lua
+EngraveIcons.lua

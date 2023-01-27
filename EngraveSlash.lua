@@ -1,43 +1,4 @@
-local function WrapInGold(text)
-    return "|cffffcc00"..text
-end
 
-local function splitStr(inputstr, sep)
-    if sep == nil then
-            sep = "%s"
-    end
-    local t={}
-    for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
-            table.insert(t, str)
-    end
-    return t
-end
-
-local function addEngravingToItemId(id, text)
-    for key, value in pairs(EngravingsTable) do
-        local extractedId = splitStr(value, "/---/")[1]
-        if extractedId == tostring(id) then
-            return false
-        end
-    end
-    table.insert(EngravingsTable, id.."/---/"..text)
-    return true
-end
-
-local function removeEngraving(id)
-    local index = -1
-    for key, value in pairs(EngravingsTable) do
-        local extractedId = splitStr(value, "/---/")[1]
-        if extractedId == tostring(id) then
-            index = key
-        end
-    end
-    if (index ~= -1) then
-        table.remove(EngravingsTable, index)
-        return true
-    end
-    return false
-end
 
 SLASH_PHRASE1 = "/engrave";
 
@@ -74,7 +35,7 @@ SlashCmdList["PHRASE"] = function(msg)
             local _, itemLink = GameTooltip:GetItem()
             if itemLink then
                 local itemId = GetItemInfoFromHyperlink(itemLink)
-                local result = removeEngraving(itemId)
+                local result = RemoveEngraving(itemId)
                 if result then
                     print(WrapInGold('Engraving on ' .. itemLink .. ' has been removed'))
                 else
@@ -92,7 +53,7 @@ SlashCmdList["PHRASE"] = function(msg)
         local _, itemLink = GameTooltip:GetItem()
         if itemLink then
             local itemId = GetItemInfoFromHyperlink(itemLink)
-            local result = addEngravingToItemId(itemId, msg)
+            local result = AddEngravingToItemId(itemId, msg)
             if result then
                 print(WrapInGold('Engraved item ' .. itemLink .. " with \"".. msg .. "\""))
             else
